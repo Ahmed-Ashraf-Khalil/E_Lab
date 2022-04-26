@@ -64,11 +64,11 @@ all_labels = [
 
 app = Flask(__name__,
             static_folder='static',
-            template_folder='templates')
+            template_folder='.')
 
 #__________________________________________________________MODELS ML____________________________________________________________________#
 
-model_diabetes =joblib.load('D:\\E-lab Project\\Website\\RF.mdl')
+model_diabetes =joblib.load('RF.mdl')
 model_Skin=None
 model_Xray=None
 
@@ -76,10 +76,10 @@ def load_model():
     # load the pre-trained Keras model (here we are using a model
     # substitute in your own networks just as easily)
     global model_Skin
-    model_Skin =tf.keras.models.load_model('D:\\E-lab Project\\Website\\skin_cancer_model.sav')
+    model_Skin =tf.keras.models.load_model('skin_cancer_model.sav')
     
     global model_Xray
-    model_Xray=tf.keras.models.load_model('D:\\E-lab Project\\Website\\x-ray_chest87.sav')
+    model_Xray=tf.keras.models.load_model('Dx-ray_chest87.sav')
 
 #________________________________________________________PREPARE IMAGE__________________________________________________________________#
 
